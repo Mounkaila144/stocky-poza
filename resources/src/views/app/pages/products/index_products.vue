@@ -12,14 +12,14 @@
         @on-per-page-change="onPerPageChange"
         @on-sort-change="onSortChange"
         @on-search="onSearch"
-        :select-options="{ 
+        :select-options="{
           enabled: true ,
           clearSelectionText: '',
         }"
         @on-selected-rows-change="selectionChanged"
         :search-options="{
           enabled: true,
-          placeholder: $t('Search_this_table'),  
+          placeholder: $t('Search_this_table'),
         }"
         :pagination-options="{
         enabled: true,
@@ -30,7 +30,8 @@
         styleClass="tableOne vgt-table"
       >
         <div slot="selected-row-actions">
-          <button class="btn btn-danger" @click="delete_by_selected()">{{$t('Del')}}</button>
+            <button class="btn btn-success" @click="print_label_by_selected()">Print labels</button>
+            <button class="btn btn-danger" @click="delete_by_selected()">{{$t('Del')}}</button>
         </div>
         <div slot="table-actions" class="mt-2 mb-3">
           <b-button variant="outline-info m-1" size="sm" v-b-toggle.sidebar-right>
@@ -59,6 +60,11 @@
             <i class="i-Download"></i>
             {{ $t("import_products") }}
           </b-button>
+
+            <button @click="printAllLabels()" class="btn btn-success">
+                <i class="i-File-Copy"></i>
+                All labels
+            </button>
           <router-link
             class="btn-sm btn btn-primary btn-icon m-1"
             v-if="currentUserPermissions && currentUserPermissions.includes('products_add')"
@@ -67,7 +73,7 @@
             <span class="ul-btn__icon">
               <i class="i-Add"></i>
             </span>
-            <span class="ul-btn__text ml-1">{{$t('Add')}}</span>
+            <span class="ul-btn__text ml-1">{{$t('Add')}} mon test</span>
           </router-link>
         </div>
 
@@ -216,7 +222,7 @@
               <a
                 :href="'/import/exemples/import_products.csv'"
                 class="btn btn-info btn-sm btn-block"
-                
+
               >{{ $t("Download_exemple") }}</a>
             </b-col>
 
@@ -383,7 +389,7 @@ export default {
           tdClass: "text-left",
           thClass: "text-left"
         },
-       
+
         {
           label: this.$t("Cost"),
           field: "cost",
@@ -422,8 +428,14 @@ export default {
     }
   },
   methods: {
-   
 
+      printAllLabels() {
+          window.open(`/etiquettes`, '_blank');
+      },
+      print_label_by_selected() {
+          const ids = this.selectedIds.join(',');
+          window.open(`/etiquettes/print/${ids}`, '_blank');
+      },
     //-------------------------------------- Products PDF ------------------------------\\
     Product_PDF() {
     var self = this;
@@ -532,11 +544,11 @@ export default {
               this.$t("Failed")
             );
             }
-         
+
         });
     },
 
-    
+
     //------ Toast
     makeToast(variant, msg, title) {
       this.$root.$bvToast.toast(msg, {

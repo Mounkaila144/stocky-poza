@@ -20,19 +20,6 @@ define('LARAVEL_START', microtime(true));
 | loading any of our classes later on. It feels great to relax.
 |
 */
-array(4) {
-    [0]=> array(4) { math 13+12.5
-        ["note"]=> string(5) "17.00" ["subject"]=> string(4) "Math" ["type"]=> string(13) "interrogation" ["maxnote"]=> string(5) "20.00" } [1]=> array(4) {
-        ["note"]=> string(5) "20.00" ["subject"]=> string(4) "Math" ["type"]=> string(13) "interrogation" ["maxnote"]=> string(5) "20.00" } [2]=> array(4) {
-        ["note"]=> string(4) "2.00" ["subject"]=> string(4) "Math" ["type"]=> string(13) "interrogation" ["maxnote"]=> string(5) "20.00" } [3]=> array(4) {
-        ["note"]=> string(5) "20.00" ["subject"]=> string(2) "Pc" ["type"]=> string(13) "interrogation" ["maxnote"]=> string(5) "20.00" } } array(4) {
-    [0]=> array(4) {
-        ["note"]=> string(5) "12.00" ["subject"]=> string(4) "Math" ["type"]=> string(6) "devoir" ["maxnote"]=> string(5) "20.00" } [1]=> array(4) {
-        ["note"]=> string(5) "13.00" ["subject"]=> string(4) "Math" ["type"]=> string(6) "devoir" ["maxnote"]=> string(5) "20.00" } [2]=> array(4) {
-        ["note"]=> string(4) "7.00" ["subject"]=> string(2) "Pc" ["type"]=> string(6) "devoir" ["maxnote"]=> string(5) "20.00" } [3]=> array(4) {
-        ["note"]=> string(4) "8.00" ["subject"]=> string(2) "Pc" ["type"]=> string(6) "devoir" ["maxnote"]=> string(5) "20.00" } } array(2) {
-    ["Math"]=> float(12.75) ["Pc"]=> float(13.75) }
-
 
 require __DIR__ . '/../vendor/autoload.php';
 
